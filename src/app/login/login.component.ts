@@ -27,34 +27,26 @@ export class LoginComponent implements OnInit {
   }
   public createForm() {
     this.formRegister = this.fb.group({
-      username: [''],
+      name: [''],
       email: [''],
       password: [''],
       cep: [''],
       tel: [''],
     });
     this.formLogin = this.fb.group({
-      emailLogin: [''],
-      passwordLogin: [''],
+      email: [''],
+      password: [''],
     });
   }
 
   public createUser() {
     this.userService.createUser(this.formRegister.value).subscribe(
       (response) => {
-        alert('Usuario Criado');
+        alert('Usuario Criado!');
+        this.showForm('login');
       },
       (error) => {
-        alert(error);
-        this.router.navigate(['/home'], {
-          state: {
-            username: 'jose',
-            email: 'gatinha',
-            password: 'naopodemari',
-            cep: '0154',
-            tel: '666',
-          },
-        });
+        alert(error.error.message);
       }
     );
   }
@@ -65,7 +57,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home'], { state: response });
       },
       (error) => {
-        alert(error);
+        alert(error.error.message);
       }
     );
   }

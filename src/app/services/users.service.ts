@@ -13,11 +13,11 @@ export class UserService {
     return this.http.post('http://localhost:3000/users', data);
   }
 
-  public updateUser(data) {
-    return this.http.put('http://localhost:3000/auth', data);
+  public updateUser(data, id) {
+    return this.http.put(`http://localhost:3000/users/${id}`, data);
   }
 
   public authUser(data) {
-    return this.http.post('http://localhost:3000/auth', data);
+    return this.http.post('http://localhost:3000/auth/login', data);
   }
 }

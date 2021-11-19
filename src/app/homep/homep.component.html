@@ -1,32 +1,32 @@
 <div id="cadastro">
-  <form [formGroup]="form" method="post" action="">
-    <h1>Bem vindo, {{ username }}</h1>
+    <form [formGroup]="form" method="post" action="">
+        <h1>Bem vindo, {{ username }}</h1>
 
-    <p>
-      <label for="nomeUsuario">Seu nome</label>
-      <input formControlName="username" name="nomeUsuario" />
-    </p>
+        <p>
+            <label for="nomeUsuario">Seu nome</label>
+            <input formControlName="name" name="nomeUsuario" />
+        </p>
 
-    <p>
-      <label for="emailUsuario">Seu e-mail</label>
-      <input formControlName="email" name="emailUsuario" />
-    </p>
+        <p>
+            <label for="emailUsuario">Seu e-mail</label>
+            <input formControlName="email" name="emailUsuario" />
+        </p>
 
-    <p>
-      <label for="senhaUsuario">Sua Senha</label>
-      <input formControlName="password" name="senhaUsuario" />
-    </p>
-    <p>
-      <label for="cepUsuario">Seu Cep</label>
-      <input formControlName="cep" name="cepUsuario" />
-    </p>
-    <p>
-      <label for="tel_cad">Seu Telefone</label>
-      <input formControlName="tel" name="telCad" />
-    </p>
+        <p>
+            <label for="senhaUsuario">Sua Senha</label>
+            <input formControlName="password" name="senhaUsuario" />
+        </p>
+        <p>
+            <label for="cepUsuario">Seu Cep</label>
+            <input formControlName="cep" name="cepUsuario" />
+        </p>
+        <p>
+            <label for="tel_cad">Seu Telefone</label>
+            <input formControlName="tel" name="telCad" />
+        </p>
 
-    <p>
-      <input type="submit" value="Alterar" (click)="updateUser()" />
-    </p>
-  </form>
+        <p>
+            <input type="submit" value="Alterar" (click)="updateUser()" />
+        </p>
+    </form>
 </div>

@@ -1,112 +1,70 @@
 <div class="container">
-  <div class="content">
-    <div *ngIf="show == 'login'">
-      <form [formGroup]="formLogin" method="post" action="">
-        <h1>Login</h1>
-        <p>
-          <label for="emailLogin">Seu e-mail</label>
-          <input
-            name="emailLogin"
-            required="required"
-            type="text"
-            placeholder="example@gmail.com"
-            formControlName="emailLogin"
-          />
-        </p>
+    <div class="content">
+        <div *ngIf="show == 'login'">
+            <form [formGroup]="formLogin" method="post" action="">
+                <h1>Login</h1>
+                <p>
+                    <label for="emailLogin">Seu e-mail</label>
+                    <input name="emailLogin" required="required" type="text" placeholder="example@gmail.com" formControlName="email" />
+                </p>
 
-        <p>
-          <label for="senhaLogin">Sua senha</label>
-          <input
-            name="senhaLogin"
-            required="required"
-            type="password"
-            placeholder=""
-            formControlName="passwordLogin"
-          />
-        </p>
+                <p>
+                    <label for="senhaLogin">Sua senha</label>
+                    <input name="senhaLogin" required="required" type="password" placeholder="" formControlName="password" />
+                </p>
 
-        <p>
-          <input type="checkbox" name="manterlogado" value="" />
-          <label for="manterlogado">Manter-me logado</label>
-        </p>
+                <p>
+                    <input type="checkbox" name="manterlogado" value="" />
+                    <label for="manterlogado">Manter-me logado</label>
+                </p>
 
-        <p>
-          <input type="submit" value="Logar" (click)="authUser()" />
-        </p>
+                <p>
+                    <input type="submit" value="Logar" (click)="authUser()" />
+                </p>
 
-        <p class="link">
-          Ainda não tem conta?
-          <a (click)="showForm('register')">Cadastre-se</a>
-        </p>
-      </form>
+                <p class="link">
+                    Ainda não tem conta?
+                    <a (click)="showForm('register')">Cadastre-se</a>
+                </p>
+            </form>
+        </div>
+
+        <div *ngIf="show == 'register'">
+            <form [formGroup]="formRegister" method="post" action="">
+                <h1>Cadastro</h1>
+
+                <p>
+                    <label for="nomeCad">Seu nome</label>
+                    <input name="nomeCad" required="required" type="text" placeholder="Insira seu nome" formControlName="name" />
+                </p>
+
+                <p>
+                    <label for="emailCad">Seu e-mail</label>
+                    <input name="emailCad" required="required" type="email" placeholder="exemplo@gmail.com" formControlName="email" />
+                </p>
+
+                <p>
+                    <label for="senhaCad">Sua senha</label>
+                    <input name="senhaCad" required="required" type="password" placeholder="Nunca passe sua senha" formControlName="password" />
+                </p>
+                <p>
+                    <label for="emailCad">Seu CEP</label>
+                    <input name="cepCad" required="required" type="cep" placeholder="00000-000" formControlName="cep" />
+                </p>
+                <p>
+                    <label for="telCad">Seu Telefone</label>
+                    <input name="telCad" required="required" type="tel" placeholder="(11)99999-9999" formControlName="tel" />
+                </p>
+
+                <p>
+                    <input type="submit" value="Cadastrar" (click)="createUser()" />
+                </p>
+
+                <p class="link">
+                    Já tem conta?
+                    <a (click)="showForm('login')"> Ir para Login </a>
+                </p>
+            </form>
+        </div>
     </div>
-
-    <div *ngIf="show == 'register'">
-      <form [formGroup]="formRegister" method="post" action="">
-        <h1>Cadastro</h1>
-
-        <p>
-          <label for="nomeCad">Seu nome</label>
-          <input
-            name="nomeCad"
-            required="required"
-            type="text"
-            placeholder="Insira seu nome"
-            formControlName="username"
-          />
-        </p>
-
-        <p>
-          <label for="emailCad">Seu e-mail</label>
-          <input
-            name="emailCad"
-            required="required"
-            type="email"
-            placeholder="exemplo@gmail.com"
-            formControlName="email"
-          />
-        </p>
-
-        <p>
-          <label for="senhaCad">Sua senha</label>
-          <input
-            name="senhaCad"
-            required="required"
-            type="password"
-            placeholder="Nunca passe sua senha"
-            formControlName="password"
-          />
-        </p>
-        <p>
-          <label for="emailCad">Seu CEP</label>
-          <input
-            name="cepCad"
-            required="required"
-            type="cep"
-            placeholder="00000-000"
-            formControlName="cep"
-          />
-        </p>
-        <p>
-          <label for="telCad">Seu Telefone</label>
-          <input
-            name="telCad"
-            required="required"
-            type="tel"
-            placeholder="(11)99999-9999"
-            formControlName="tel"
-          />
-        </p>
-
-        <p>
-          <input type="submit" value="Cadastrar" (click)="createUser()" />
-        </p>
-
-        <p class="link">
-          Já tem conta?
-          <a (click)="showForm('login')"> Ir para Login </a>
-        </p>
-      </form>
-    </div>
-  </div>
 </div>

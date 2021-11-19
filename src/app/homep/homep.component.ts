@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class HomepComponent implements OnInit {
   form?: FormGroup;
   user: any;
-  username: string = 'Jose';
+  username: string;
 
   constructor(
     private userService: UserService,
@@ -19,6 +19,7 @@ export class HomepComponent implements OnInit {
     private router: Router
   ) {
     this.user = this.router.getCurrentNavigation()?.extras?.state;
+    this.username = this.user.name;
   }
 
   ngOnInit(): void {
@@ -26,7 +27,7 @@ export class HomepComponent implements OnInit {
   }
   public createForm() {
     this.form = this.fb.group({
-      username: [''],
+      name: [''],
       email: [''],
       password: [''],
       cep: [''],
@@ -35,12 +36,16 @@ export class HomepComponent implements OnInit {
     this.form.patchValue(this.user);
   }
   public updateUser() {
-    this.userService.updateUser(this.form.value).subscribe(
+    if (!this.form.value.password) {
+      delete this.form.value.password;
+    }
+    this.userService.updateUser(this.form.value, this.user.id).subscribe(
       (response) => {
         alert('Usuario Atualizado!');
+        this.router.navigate(['/login']);
       },
       (error) => {
-        alert(error);
+        alert(error.error.message);
       }
     );
   }
